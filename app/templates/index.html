@@ -3,35 +3,62 @@
 <head>
     <meta charset="UTF-8">
     <title>CrudClientes</title>
-    <link rel="stylesheet" href="/static/styles.css">
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css">
+    <!-- DataTables CSS -->
+    <link rel="stylesheet" href="https://cdn.datatables.net/1.11.3/css/jquery.dataTables.min.css">
+    <link rel="stylesheet" href="https://cdn.datatables.net/buttons/2.0.0/css/buttons.dataTables.min.css">
+    <!-- Estilos personalizados -->
 </head>
 <body>
-    <h1>Sistema de Clientes</h1>
-    <a href="/add" class="edit-button">Adicionar Cliente</a>
-    <br>
-    <br>
-    <table>
-        <thead>
-            <tr>
-                <th>ID</th>
-                <th>Nome</th>
-                <th>Email</th>
-                <th>Ações</th>
-            </tr>
-        </thead>
-        <tbody>
-            {% for cliente in clientes %}
-            <tr>
-                <td>{{ cliente.id }}</td>
-                <td>{{ cliente.nome }}</td>
-                <td>{{ cliente.email }}</td>
-                <td>
-                    <a href="/edit/{{ cliente.id }}" class="edit-button">Editar</a>
-                    <a href="/delete/{{ cliente.id }}" class="delete-button">Excluir</a>
-                </td>
-            </tr>
-            {% endfor %}
-        </tbody>
-    </table>
+    <div class="container mt-4">
+        <h1>Sistema de Clientes</h1>
+        <a href="/add" class="btn btn-primary mb-3">Adicionar Cliente</a>
+        <table id="clientesTable" class="table table-striped" style="width:100%">
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Nome</th>
+                    <th>Email</th>
+                    <th>Ações</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for cliente in clientes %}
+                <tr>
+                    <td>{{ cliente.id }}</td>
+                    <td>{{ cliente.nome }}</td>
+                    <td>{{ cliente.email }}</td>
+                    <td>
+                        <a href="/edit/{{ cliente.id }}" class="btn btn-success">Editar</a>
+                        <a href="/delete/{{ cliente.id }}" class="btn btn-danger">Excluir</a>
+                    </td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+
+    <!-- jQuery -->
+    <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
+    <!-- DataTables JS -->
+    <script src="https://cdn.datatables.net/1.11.3/js/jquery.dataTables.min.js"></script>
+    <script src="https://cdn.datatables.net/buttons/2.0.0/js/dataTables.buttons.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.1.3/jszip.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.53/pdfmake.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.53/vfs_fonts.js"></script>
+    <script src="https://cdn.datatables.net/buttons/2.0.0/js/buttons.html5.min.js"></script>
+    <script src="https://cdn.datatables.net/buttons/2.0.0/js/buttons.print.min.js"></script>
+
+    <script>
+        $(document).ready(function() {
+            $('#clientesTable').DataTable({
+                dom: 'Bfrtip',
+                buttons: [
+                    'copy', 'csv', 'excel', 'pdf', 'print'
+                ]
+            });
+        });
+    </script>
 </body>
 </html>
