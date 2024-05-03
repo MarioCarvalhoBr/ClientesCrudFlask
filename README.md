@@ -20,14 +20,14 @@ cd CrudClientes
 ### Configurar Ambiente Virtual
 
 ```bash
-python3 -m venv venv
-source venv/bin/activate
+conda create -n flask python=3.8
+conda activate flask
 ```
 
 ### Instalar Dependências
 
 ```bash
-pip install flask flask_sqlalchemy
+pip install -r requirements.txt
 ```
 # Instalar SQLite para testes
 ```bash
