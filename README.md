@@ -62,13 +62,13 @@ Acesse a aplicação em `http://127.0.0.1:5000/`.
 - **Editar Cliente:** Permite editar informações de um cliente existente.
 - **Excluir Cliente:** Permite excluir um cliente do banco de dados.
 
-## PRODUTOS
+**PRODUTOS**
 - **Adicionar Produto:** Permite adicionar um novo produto ao banco de dados.
 - **Visualizar Produtos:** Lista todos os produtos cadastrados.
 - **Editar Produto:** Permite editar informações de um produto existente.
 - **Excluir Produto:** Permite excluir um produto do banco de dados.
 
-# CURSOS
+**CURSOS**
 - **Adicionar Curso:** Permite adicionar um novo curso ao banco de dados.
 - **Visualizar Cursos:** Lista todos os cursos cadastrados.
 - **Editar Curso:** Permite editar informações de um curso existente.
