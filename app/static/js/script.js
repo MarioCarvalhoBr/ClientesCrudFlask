@@ -13,7 +13,7 @@ function confirmDelete(dataID) {
 }
 
 function createDataTable(table_name) {
-    var produtosTable = new DataTable(table_name, {
+    var objDataTable = new DataTable(table_name, {
         "responsive": true,
         "bJQueryUI": true,
         "autoWidth": false,
@@ -46,7 +46,7 @@ function createDataTable(table_name) {
     });
 
     // Set autoWidth como true
-    produtosTable.columns.adjust().draw();
+    objDataTable.columns.adjust().draw();
 
-    return produtosTable;
+    return objDataTable;
 }
