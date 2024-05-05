@@ -1,16 +1,19 @@
 from flask import render_template, redirect, url_for, flash, request
 from app import app, db
-from app.forms import ClienteForm, ProdutoForm
-from app.models import Cliente, Produto
+from app.forms import ClienteForm, ProdutoForm, CursoForm
+from app.models import Cliente, Produto, Curso
 
 # ROUTES DEFAULT
 @app.route('/')
 def home():
     clientes = Cliente.query.all()
     produtos = Produto.query.all()
+    cursos = Curso.query.all()
+
     total_clientes = len(clientes)
     total_produtos = len(produtos)
-    return render_template('home.html', total_clientes=total_clientes, total_produtos=total_produtos)
+    total_cursos = len(cursos)
+    return render_template('home.html', total_clientes=total_clientes, total_produtos=total_produtos, total_cursos=total_cursos)
 
 @app.errorhandler(404)
 def page_not_found(e):
@@ -89,3 +92,40 @@ def produto_delete(id):
     db.session.delete(produto)
     db.session.commit()
     return redirect(url_for('produto_list'))
+
+# ROUTES CURSO: CRUD
+@app.route('/curso/list')
+def curso_list():
+    cursos = Curso.query.all()
+    return render_template('curso/list.html', cursos=cursos)
+
+@app.route('/curso/add', methods=['GET', 'POST'])
+def curso_add():
+    form = CursoForm()
+    if form.validate_on_submit():
+        novo_curso = Curso(nome=form.nome.data, descricao=form.descricao.data, preco=form.preco.data)
+        db.session.add(novo_curso)
+        db.session.commit()
+        flash('Curso adicionado com sucesso!')
+        return redirect(url_for('curso_list'))
+    return render_template('curso/add.html', form=form)
+
+@app.route('/curso/edit/<uuid:id>', methods=['GET', 'POST'])
+def curso_edit(id):
+    curso = Curso.query.get_or_404(str(id))
+    form = CursoForm(obj=curso, id=str(curso.id))
+    if form.validate_on_submit():
+        curso.nome = form.nome.data
+        curso.descricao = form.descricao.data
+        curso.preco = form.preco.data
+        db.session.commit()
+        flash('Informações do curso atualizadas com sucesso!')
+        return redirect(url_for('curso_list'))
+    return render_template('curso/edit.html', form=form)
+
+@app.route('/curso/delete/<id>')
+def curso_delete(id):
+    curso = Curso.query.get(id)
+    db.session.delete(curso)
+    db.session.commit()
+    return redirect(url_for('curso_list'))

@@ -28,4 +28,20 @@ class ProdutoForm(FlaskForm):
             raise ValidationError('Por favor, forneça um valor numérico para o preço.')
         if preco < 0:
             raise ValidationError('O preço não pode ser negativo.')
+        
+
+
+class CursoForm(FlaskForm):
+    id = HiddenField()  # Armazena o ID do produto quando estiver editando
+    nome = StringField('Nome', validators=[DataRequired(message="O campo nome é obrigatório.")])
+    descricao = StringField('Descrição', validators=[DataRequired(message="O campo descrição é obrigatório.")])
+    preco = StringField('Preço', validators=[DataRequired(message="O campo preço é obrigatório.")])
+
+    def validate_preco(self, preco):
+        try:
+            preco = float(preco.data)
+        except ValueError:
+            raise ValidationError('Por favor, forneça um valor numérico para o preço.')
+        if preco < 0:
+            raise ValidationError('O preço não pode ser negativo.')
     
