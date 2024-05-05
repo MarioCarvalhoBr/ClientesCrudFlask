@@ -1,8 +1,8 @@
 {% extends "base.html" %}
 
 {% block head %}
-    <!-- Recursos específicos desta página -->
-    <!-- <link rel="stylesheet" href="/static/mystyles.css"> -->
+<!-- Recursos específicos desta página -->
+<!-- <link rel="stylesheet" href="/static/mystyles.css"> -->
 {% endblock %}
 
 <!-- Ativação do Menu-->
@@ -34,67 +34,26 @@
                     <td>{{ curso.preco }}</td>
                     <td>
                         <a href="/curso/edit/{{ curso.id }}" class="btn btn-success">Editar</a>
-                        <a href="/curso/delete/{{ curso.id }}" class="btn btn-danger">Excluir</a>
+                        <a href="#" class="btn btn-danger delete-btn"
+                            onclick="confirmDelete('{{ curso.id }}')">Excluir</a>
                     </td>
                 </tr>
                 {% endfor %}
             </tbody>
         </table>
-      </div>
-      
+    </div>
+
 
 </div>
 
-<!-- jQuery -->
-<script src="https://code.jquery.com/jquery-3.5.1.js"></script>
-<!-- DataTables JS -->
-<script src="https://cdn.datatables.net/1.11.3/js/jquery.dataTables.min.js"></script>
-<script src="https://cdn.datatables.net/buttons/2.0.0/js/dataTables.buttons.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.1.3/jszip.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.53/pdfmake.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.53/vfs_fonts.js"></script>
-<script src="https://cdn.datatables.net/buttons/2.0.0/js/buttons.html5.min.js"></script>
-<script src="https://cdn.datatables.net/buttons/2.0.0/js/buttons.print.min.js"></script>
-
 <script>
-    var cursosTable = new DataTable('#cursosTable', {
-            "responsive": true,
-			"bJQueryUI": true,
-			"autoWidth": false,
-			dom: 'Bfrtip',
-            buttons: [
-                {
-                    extend: 'copy',
-                    text: 'Copiar'
-                },
-                {
-                    extend: 'csv',
-                    text: 'CSV'
-                },
-                {
-                    extend: 'excel',
-                    text: 'Excel'
-                },
-                {
-                    extend: 'pdf',
-                    text: 'PDF'
-                },
-                {
-                    extend: 'print',
-                    text: 'Imprimir'
-                }
-            ],
-            language: {
-                url: 'https://cdn.datatables.net/plug-ins/1.11.3/i18n/pt_br.json'
-            }
-        });
+    var cursosTable = createDataTable('#cursosTable');
 
-        // Diminuir o zoom da tabela para mostrar mais colunas
-        cursosTable.style.zoom = "80%";
+    function deleteData(cursoId) {
+        // Redireciona para a rota de exclusão
+        window.location.href = '/curso/delete/' + cursoId;
+    }
 
-        // Set autoWidth como true
-        cursosTable.columns.adjust().draw();
-    
 </script>
 
 {% endblock %}
