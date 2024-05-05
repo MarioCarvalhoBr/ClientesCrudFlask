@@ -2,25 +2,10 @@ body {
     font-family: Arial, sans-serif;
     background-color: #f4f4f4;
     margin: 0;
-    padding: 20px;
-}
-
-.container {
-    max-width: 600px;
-    margin: auto;
-    background: white;
-    padding: 20px;
-    border-radius: 8px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 }
 
 h1 {
     color: #333;
-}
-
-.form-cliente {
-    display: flex;
-    flex-direction: column;
 }
 
 .form-group {
@@ -30,29 +15,6 @@ h1 {
 label {
     margin-bottom: 5px;
     color: #666;
-}
-
-input[type="text"],
-input[type="email"] {
-    width: 100%;
-    padding: 8px;
-    border: 1px solid #ddd;
-    border-radius: 4px;
-}
-
-.btn {
-    background-color: #4CAF50; /* Verde */
-    color: white;
-    border: none;
-    padding: 10px 20px;
-    font-size: 16px;
-    cursor: pointer;
-    border-radius: 4px;
-    transition: background-color 0.3s;
-}
-
-.btn:hover {
-    background-color: #45a049;
 }
 
 table {
@@ -82,14 +44,12 @@ a:hover {
     text-decoration: underline;
 }
 
-.edit-button {
-    background-color: #007BFF; /* Azul */
-    color: white;
-    border-radius: 5px;
-}
-
-.delete-button {
-    background-color: #DC3545; /* Vermelho */
-    color: white;
+.myContainer
+{
+    margin-left: 10px;
+    margin-right: 10px ;
+    padding: 20px;
+    background-color: #fff;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
     border-radius: 5px;
 }

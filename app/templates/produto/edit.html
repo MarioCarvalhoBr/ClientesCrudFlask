@@ -1,0 +1,51 @@
+{% extends "base.html" %}
+
+{% block head %}
+<!-- Recursos específicos desta página -->
+<link rel="stylesheet" href="/static/styles.css">
+{% endblock %}
+
+<!-- Ativação do Menu-->
+{% block active_produtos %}active{% endblock %}
+
+<!-- Conteúdo da página -->
+{% block content %}
+
+<div class="myContainer mt-2">
+    <h3>Editar Produto</h3>
+    <form method="post" novalidate>
+        {{ form.hidden_tag() }}
+        <div class="mb-3">
+            {{ form.nome.label(class="form-label") }}
+            {{ form.nome(class="form-control") }}
+            {% if form.nome.errors %}
+            <div class="alert alert-danger">
+                {{ form.nome.errors[0] }}
+            </div>
+            {% endif %}
+        </div>
+        <div class="mb-3">
+            {{ form.descricao.label(class="form-label") }}
+            {{ form.descricao(class="form-control") }}
+            {% if form.descricao.errors %}
+            <div class="alert alert-danger">
+                {{ form.descricao.errors[0] }}
+            </div>
+            {% endif %}
+        </div>
+        <div class="mb-3">
+            {{ form.preco.label(class="form-label") }}
+            {{ form.preco(class="form-control") }}
+            {% if form.preco.errors %}
+            <div class="alert alert-danger">
+                {{ form.preco.errors[0] }}
+            </div>
+            {% endif %}
+        </div>
+        <div class="mb-3">
+            <a href="/produto/list" class="btn btn-secondary">Voltar</a>
+            <button type="submit" class="btn btn-primary">Salvar</button>
+        </div>
+    </form>
+</div>
+{% endblock %}

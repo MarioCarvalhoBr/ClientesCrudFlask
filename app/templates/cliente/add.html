@@ -1,0 +1,42 @@
+{% extends "base.html" %}
+
+{% block head %}
+<!-- Recursos específicos desta página -->
+<link rel="stylesheet" href="/static/styles.css">
+{% endblock %}
+
+<!-- Ativação do Menu-->
+{% block active_clientes %}active{% endblock %}
+
+<!-- Conteúdo da página -->
+{% block content %}
+
+<div class="myContainer mt-2">
+    <h3>Adicionar Cliente</h3>
+    <form method="post" action="/cliente/add" novalidate>
+        {{ form.hidden_tag() }}
+        <div class="form-group">
+            {{ form.nome.label(class="form-label") }}
+            {{ form.nome(class="form-control") }}
+            {% if form.nome.errors %}
+            <div class="alert alert-danger">
+                {{ form.nome.errors[0] }}
+            </div>
+            {% endif %}
+        </div>
+        <div class="mb-3">
+            {{ form.email.label(class="form-label") }}
+            {{ form.email(class="form-control") }}
+            {% if form.email.errors %}
+            <div class="alert alert-danger">
+                {{ form.email.errors[0] }}
+            </div>
+            {% endif %}
+        </div>
+        <div class="mb-3">
+            <a href="/cliente/list" class="btn btn-secondary">Voltar</a>
+            <button type="submit" class="btn btn-primary">Cadastrar</button>
+        </div>
+    </form>
+</div>
+{% endblock %}

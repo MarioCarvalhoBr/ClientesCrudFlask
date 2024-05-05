@@ -1,0 +1,167 @@
+{% extends "base.html" %}
+
+{% block head %}
+<!-- Adicional, se necessário, por exemplo, CSS específico para esta página -->
+{% endblock %}
+
+<!-- Ativação do Menu-->
+{% block activete_home %}active{% endblock %}
+
+<!-- Conteúdo da página -->
+{% block content %}
+
+<div class="myContainer mt-2">
+
+
+    <div class="container py-3">
+        <main>
+            <div class="row row-cols-1 row-cols-md-3 mb-3 text-center">
+                <div class="col">
+
+                    <div class="card mb-4 rounded-3 shadow-sm">
+                        <div class="card-header py-3">
+                            <h4 class="my-0 fw-normal">Clientes</h4>
+                        </div>
+                        <div class="card-body">
+                            <i class="bi bi-person-vcard-fill" style="font-size: 3rem;"></i>
+                            <h1 class="card-title pricing-card-title" id="num_clientes">{{total_clientes}}</h1>
+                            <ul class="list-unstyled mt-3 mb-4">
+                                <li>Clientes cadastrados</li>
+                            </ul>
+                            <a href="/cliente/list" class="w-100 btn btn-lg btn-outline-primary">Gerenciar</a>
+                        </div>
+                    </div>
+
+                </div>
+                <div class="col">
+                    <div class="card  text-bg-danger  mb-4 rounded-3 shadow-sm">
+                        <div class="card-header py-3">
+                            <h4 class="my-0 fw-normal">Produtos</h4>
+                        </div>
+                        <div class="card-body">
+                            <i class="bi bi-bag-plus-fill" style="font-size: 3rem;"></i>
+                            <h1 class="card-title pricing-card-title" id="num_produtos">{{total_produtos}}</h1>
+                            <ul class="list-unstyled mt-3 mb-4">
+                                <li>Produtos cadastrados</li>
+                            </ul>
+
+                            <a href="/produto/list" class="w-100 btn btn-lg btn-primary">Gerenciar</a>
+
+                          
+                        </div>
+                    </div>
+                </div>
+                <div class="col">
+                    <div class="card text-bg-warning mb-4 rounded-3 shadow-sm border-primary">
+                        <div class="card-header py-3 text-bg-warning border-primary">
+                            <h4 class="my-0 fw-normal">Cursos</h4>
+                        </div>
+                        <div class="card-body">
+                            <i class="bi bi-journal-bookmark" style="font-size: 3rem;"></i>
+                            <h1 class="card-title pricing-card-title" id="num_cursos">xxxx</h1>
+                            <ul class="list-unstyled mt-3 mb-4">
+                                <li>Cursos de Programação</li>
+                            </ul>
+                            <button id="liveAlertBtn" type="button"
+                                class="w-100 btn btn-lg btn-danger">Gerenciar</button>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div id="liveAlertPlaceholder"></div>
+
+
+
+        </main>
+
+
+        <h3>
+            Perguntas frequentes <i class="bi bi-question-circle-fill"></i>
+
+        </h3>
+
+        <div class="accordion" id="accordionExample">
+            <div class="accordion-item">
+                <h2 class="accordion-header">
+                    <button class="accordion-button" type="button" data-bs-toggle="collapse"
+                        data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                        O sistema permite o cadastro de informações de endereço do cliente?
+                    </button>
+                </h2>
+                <div id="collapseOne" class="accordion-collapse collapse show" data-bs-parent="#accordionExample">
+                    <div class="accordion-body">
+                        <strong>
+                            Sim. O sistema permite o cadastro de informações de endereço do cliente. As informações de
+                            endereço são: rua, número, bairro, cidade, estado e CEP.
+                        </strong>
+                    </div>
+                </div>
+            </div>
+            <div class="accordion-item">
+                <h2 class="accordion-header">
+                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                        data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                        O sistema permite editar o preço dos produtos?
+                    </button>
+                </h2>
+                <div id="collapseTwo" class="accordion-collapse collapse" data-bs-parent="#accordionExample">
+                    <div class="accordion-body">
+                        <strong>
+                            Sim. O sistema permite editar o preço dos produtos. O preço pode ser editado a qualquer
+                            momento.
+                        </strong>
+
+                    </div>
+                </div>
+            </div>
+            <div class="accordion-item">
+                <h2 class="accordion-header">
+                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                        data-bs-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+                        É possivel adicionar vídeos durante a criação do curso?
+                    </button>
+                </h2>
+                <div id="collapseThree" class="accordion-collapse collapse" data-bs-parent="#accordionExample">
+                    <div class="accordion-body">
+                        <strong>
+                            Sim. É possivel adicionar vídeos durante a criação do curso. O sistema permite adicionar
+                            vídeos do Youtube e Vimeo.
+                        </strong>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+</div>
+
+<div class="container">
+    <footer class="d-flex flex-wrap justify-content-between align-items-center py-3 my-4 border-top">
+        <p class="col-md-4 mb-0 text-body-secondary">&copy; 2023 Sistema CRUD, Todos os direitos reservados
+        </p>
+
+        <a href="/"
+            class="col-md-4 d-flex align-items-center justify-content-center mb-3 mb-md-0 me-md-auto link-body-emphasis text-decoration-none">
+            <svg class="bi me-2" width="40" height="32">
+                <use xlink:href="#bootstrap" />
+            </svg>
+        </a>
+
+        <ul class="nav col-md-4 justify-content-end">
+            <li class="nav-item"><a href="https://facebook.com" class="nav-link px-2 text-body-secondary"><i
+                        class="bi bi-facebook"></i></a></li>
+            <li class="nav-item"><a href="https://x.com" class="nav-link px-2 text-body-secondary"><i
+                        class="bi bi-twitter"></i></a></li>
+            <li class="nav-item"><a href="https://instagram.com" class="nav-link px-2 text-body-secondary"><i
+                        class="bi bi-instagram"></i></a></li>
+            <li class="nav-item"><a href="https://github.com" class="nav-link px-2 text-body-secondary"><i
+                        class="bi bi-github"></i></a></li>
+        </ul>
+    </footer>
+</div>
+
+
+{% endblock %}
