@@ -1,8 +1,8 @@
-# Projeto CrudClientes
+# Projeto TotalityCRM
 
 ## Descrição
 
-CrudClientes é uma aplicação web desenvolvida em Flask para gerenciar informações de clientes. Os dados são armazenados em um banco de dados SQLite. A aplicação permite adicionar, editar, visualizar e excluir clientes.
+TotalityCRM é uma aplicação web desenvolvida em Flask para gerenciar informações de clientes. Os dados são armazenados em um banco de dados SQLite. A aplicação permite adicionar, editar, visualizar e excluir clientes.
 
 ## Pré-requisitos
 
@@ -13,8 +13,8 @@ Antes de iniciar, certifique-se de ter o Python instalado em sua máquina. Esta 
 ### Clonar o Repositório
 
 ```bash
-git clone https://github.com/seu_usuario/CrudClientes.git
-cd CrudClientes
+git clone https://github.com/seu_usuario/TotalityCRM.git
+cd TotalityCRM
 ```
 
 ### Configurar Ambiente Virtual
